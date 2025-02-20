@@ -1,0 +1,38 @@
+﻿@model MVC_projekt_Peole_kutsumine.Models.Guest
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<div>
+    <p> Tänan sind, @Model.Name </p>
+
+</div>
+<div>
+    @if (Model.WillAttend == true)
+    {
+        @:Ootame sind kallis sõber!
+        <p>
+            <br />
+            <img src="~/Images/kutse.jpg" />
+        </p>
+        using (Html.BeginForm("Meeldetuletus", "Home", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.Name)
+            @Html.HiddenFor(m => m.Email)
+            @Html.HiddenFor(m => m.Phone)
+            @Html.HiddenFor(m => m.WillAttend)
+            <input type="submit" value="Meeldetuletus" name="Meeldetuletus" />
+        }
+    }
+    else
+    {
+        @:Väga kurb uudis. Näeme hiljem!
+        <p>
+            <br />
+            <img src="~/Images/kutse2.jpg" />
+        </p>
+    }
+    <br />
+    @ViewBag.Message @*ViewBag.Message - отчет об отправке письма с приглашением*@
+</div> 

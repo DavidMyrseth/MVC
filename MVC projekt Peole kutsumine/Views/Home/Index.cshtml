@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Tere tulemast peole!";
+}
+
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8" />
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: LightCyan;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+
+        .jumbotron {
+            background-color: MediumTurquoise;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 60px;
+        }
+
+            .jumbotron h1 {
+                font-size: 35px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }
+
+        .jumbotron2 {
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: black;
+        }
+
+        .message {
+            padding: 20px;
+            background-color: MintCream;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 30px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .img {
+            width: 100%;
+            text-align: center;
+            height: auto;
+        }
+
+            .img img {
+                width: 50%;
+                height: auto;
+                border-radius: 30px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>@ViewBag.Greeting, Kallis sõber!</h1>
+            <div class="jumbotron2">
+                <p>Olete oodatud meie üritusele! Õhtul saab olema palju huvitavat!</p>
+            </div>
+        </div>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="message">
+                <p>@ViewBag.Message</p>
+            </div>
+        }
+        else
+        {
+            <div class="message">
+                <p>Teade puudub.</p>
+            </div>
+        }
+
+        @if (ViewBag.ImagePath != null)
+        {
+            <div class="img">
+                <img src="@Url.Content(ViewBag.ImagePath)" alt="Kutse pilt" />
+            </div>
+        }
+
+        @if (ViewBag.ImagePath == null && ViewBag.HolidayImage != null)
+        {
+            <div class="img">
+                <img src="@Url.Content(ViewBag.HolidayImage)" alt="Holiday Image" />
+            </div>
+        }
+
+        <!-- Выводим информацию о статусе аутентификации -->
+        <div class="message">
+            <p>@ViewBag.LoginStatus</p>
+        </div>
+
+        <div class="text-center">
+            @Html.ActionLink("Vastan", "Ankeet", "Ankeet", new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</body>
+</html>

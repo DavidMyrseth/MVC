@@ -1,0 +1,50 @@
+﻿@model MVC_projekt_Peole_kutsumine.Models.Guest
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <p> Sisesta nimi: @Html.TextBoxFor(x => x.Name)</p>
+    <p> Sisesta email: @Html.TextBoxFor(x => x.Email)</p>
+    <p> Sisesta tel: @Html.TextBoxFor(x => x.Phone)</p>
+    <p>
+        Sinu valik:
+        @Html.DropDownListFor(x => x.WillAttend,
+              new[]
+              {
+            new SelectListItem() {Text="Tule kindlasti!", Value=bool.TrueString},
+            new SelectListItem() {Text="Kahjuks ei saa tulla!", Value=bool.FalseString}
+                      }, "Vali siit")
+    </p>
+    <input type="submit" value="Saada vastus" />
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: LightCyan;
+        margin: 0;
+        padding: 20px;
+    }
+
+    form {
+        background-color: MintCream;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid black;
+        border-radius: 4px;
+    }
+</style>

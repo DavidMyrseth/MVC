@@ -39,37 +39,37 @@ namespace MVC_projekt_Peole_kutsumine.Controllers
             if (month == 12)
             {
                 ViewBag.Message = "Häid jõule ja head uut aastat!";
-                ViewBag.ImagePath = "~/Images/head.jpg";
+                ViewBag.ImagePath = "";
             }
             else if (month == 1)
             {
                 ViewBag.Message = "Happy New Year!";
-                ViewBag.ImagePath = "~/Images/new_year!.jpg";
+                ViewBag.ImagePath = "";
             }
             else if (month == 2)
             {
                 ViewBag.Message = "Head sõbrapäeva";
-                ViewBag.ImagePath = "~/Images/soberpaev.jpg";
+                ViewBag.ImagePath = "";
             }
             else if (month == 4)
             {
                 ViewBag.Message = "Lihavõttepühade 1. päev";
-                ViewBag.ImagePath = "~/Images/haid_puhi.jpg";
+                ViewBag.ImagePath = "";
             }
             else if (month == 5)
             {
                 ViewBag.Message = "Kevadpäev";
-                ViewBag.ImagePath = "~/Images/kevadpaev.jpg";
+                ViewBag.ImagePath = "";
             }
             else if (month == 6)
             {
                 ViewBag.Message = "Võidupüha";
-                ViewBag.ImagePath = "~/Images/voidupuha.jpg";
+                ViewBag.ImagePath = "";
             }
             else
             {
                 ViewBag.Message = "Ootan sind minu peole! Palun tule!!!";
-                ViewBag.ImagePath = "~/Images/kutse.jpg";
+                ViewBag.ImagePath = "";
             }
 
             // Проверка, авторизован ли пользователь
@@ -121,9 +121,9 @@ namespace MVC_projekt_Peole_kutsumine.Controllers
                 WebMail.SmtpServer = "smtp.gmail.com";
                 WebMail.SmtpPort = 587;
                 WebMail.EnableSsl = true;
-                WebMail.UserName = "daragalcenko3@gmail.com";
-                WebMail.Password = "iqer zkvm czuv lgqn";
-                WebMail.From = "daragalcenko3@gmail.com";
+                WebMail.UserName = "david.mirsetSSS@gmail.com";
+                WebMail.Password = "lqwr makk gdoc ktoa";
+                WebMail.From = "david.mirsetSSS@gmail.com";
                 WebMail.Send(guest.Email, " Vastus kutsele ", guest.Name + " vastas " 
                     + ((guest.WillAttend ?? false ? " tuleb peole" : " ei tule saatnud"))); ViewBag.Message = "Kiri on saatnud!";
                 ViewBag.Message = "Kiri on saatnud!";

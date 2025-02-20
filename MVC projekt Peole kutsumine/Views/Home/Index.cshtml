@@ -1,4 +1,8 @@
-﻿@{
+﻿@model MVC_projekt_Peole_kutsumine.Models.Guest
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+
+@{
     ViewBag.Title = "Tere tulemast peole!";
 }
 
@@ -76,7 +80,7 @@
             </div>
         </div>
 
-        @if (ViewBag.Message != null)
+        @if (!string.IsNullOrEmpty(ViewBag.Message))
         {
             <div class="message">
                 <p>@ViewBag.Message</p>
@@ -89,14 +93,13 @@
             </div>
         }
 
-        @if (ViewBag.ImagePath != null)
+        @if (!string.IsNullOrEmpty(ViewBag.ImagePath))
         {
             <div class="img">
                 <img src="@Url.Content(ViewBag.ImagePath)" alt="Kutse pilt" />
             </div>
         }
-
-        @if (ViewBag.ImagePath == null && ViewBag.HolidayImage != null)
+        else if (!string.IsNullOrEmpty(ViewBag.HolidayImage))
         {
             <div class="img">
                 <img src="@Url.Content(ViewBag.HolidayImage)" alt="Holiday Image" />
